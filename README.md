@@ -33,9 +33,49 @@
 
 ## News
 
+- [2026/04/11] We open-sourced visualization results (including DiffCR and PMAA) from the paper for direct comparison in your own research papers.
 - [2023/07/30] Code release.
 - [2023/07/16] PMAA got accepted by ECAI 2023 Oral.
 - [2023/03/29] PMAA is on arXiv now.
+
+## Visualization
+
+The visualization results of 12 methods (including DiffCR) on the test sets of Sen2_MTC_Old and Sen2_MTC_New datasets, along with evaluation code for direct comparison by researchers, are available at: <a href="https://huggingface.co/datasets/XavierJiezou/diffcr-datasets">🤗 HuggingFace Visualization</a>
+
+```text
+├── paper-report.png          ← reference metrics table from the paper
+│
+├── data/
+│   ├── Sen2_MTC_New/
+│   │   ├── GT/               ← 687 cloud-free ground-truth images  ({id}.png)
+│   │   └── inputs/           ← 687 × 3 cloudy input images
+│   │                            ({id}_A1.png  {id}_A2.png  {id}_A3.png)
+│   └── Sen2_MTC_Old/
+│       ├── GT/               ← 313 ground-truth images
+│       └── inputs/           ← 313 × 3 cloudy inputs
+│
+├── results/
+│   ├── Sen2_MTC_New/
+│   │   ├── ae/               ← prediction images for each method ({id}.png)
+│   │   ├── crtsnet/
+│   │   ├── ctgan/
+│   │   ├── ddpmcr/
+│   │   ├── diffcr/           ← DiffCR [Ours]
+│   │   ├── dsen2cr/
+│   │   ├── mcgan/
+│   │   ├── pix2pix/
+│   │   ├── pmaa/
+│   │   ├── stgan/
+│   │   ├── stnet/
+│   │   └── uncrtaints/
+│   └── Sen2_MTC_Old/
+│       └── (same 12 methods)
+│
+└── eval/
+    ├── metrics.py            ← PSNR / SSIM / FID / LPIPS evaluation
+    ├── plot.py               ← comparison figure generation
+    └── requirements.txt      ← Python dependencies
+```
 
 ## Requirements
 
